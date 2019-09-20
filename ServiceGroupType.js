@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import OpcoList from './OpcoList';
-import CheckboxList from './CheckboxList';
+import ServiceGroupList from './ServiceGroupList';
 
 import './style.css';
 
@@ -21,7 +21,7 @@ const ServiceGroupType = () => {
 
   return (
     <div >
-      <OpcoList data={details} />
+      <ServiceGroupList data={details} />
      
     </div>
 

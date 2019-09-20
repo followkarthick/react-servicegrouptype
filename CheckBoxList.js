@@ -2,11 +2,11 @@ import React from 'react';
 import CheckBox from './CheckBox';
 
 export default function CheckBoxList({ services, isCheckedAll, onCheck, opcoName }) {
-  console.log(services);
+ 
   const checkBoxOptions = (
     <div>
       {services.map((service, index) => {
-        console.log(index);
+        
         return (
           <CheckBox key={index} name={service.service_code} value={service.service_name} tick={service.checked} onCheck={(e) => onCheck(service.service_name, e.target.checked)} />
         );

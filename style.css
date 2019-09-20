@@ -75,3 +75,13 @@ h1, p {
 .fxfColor{
   color:red
 }
+
+.headerP{
+  background-color:mediumpurple;
+  height: 50px;
+  text-align: center;
+}
+
+.margin{
+  margin: 10px
+}

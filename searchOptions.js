@@ -19,18 +19,31 @@ class SearchOptions extends React.Component {
       cashcheckBoxValue: '',
       deletecheckBoxValue: '',
       searchValue: '',
+output:{
+levelIDorEAN:'',
+searchValue:'',
+loadedopt:'',
+cashopt:''
+}
+
     }
   }
 
   searchClick = event => {
-    event.preventDefault();
-    if (this.state.radioValue == 'LevelId') {
-      const value = "Search value is" + ' ' + this.state.radioValue + '-' + this.state.levelIdEanValue + '-' + this.state.cashcheckBoxValue + '-' + this.state.deletecheckBoxValue;
-      this.props.searchUpdated(value);
-    } else if (this.state.radioValue == 'EAN') {
-      const value = "Search value is" + ' ' + this.state.radioValue + '-' + this.state.levelIdEanValue + '-' + this.state.cashcheckBoxValue + '-' + this.state.deletecheckBoxValue;
-      this.props.searchUpdated(value);
-    }
+    
+let out = {
+  
+levelIDorEAN:this.state.radioValue,
+searchValue:this.state.levelIdEanValue,
+loadedOpt:this.state.radioLoadedValue,
+compareOpt:this.state.radioComparisonValue,
+cashOpt:[this.state.cashcheckBoxValue,this.state.deletecheckBoxValue]
+}
+
+
+      this.props.searchUpdated(out);
+    
+    
   }
 
   levelIdChange = event => {
@@ -105,11 +118,12 @@ class SearchOptions extends React.Component {
         </SearchContainer>
         <SubHeader>Service Group Types </SubHeader>
         <ServiceGroupType />
+        <ViewData />
         <ButtonMargin>
           <Button type="submit" onClick={this.searchClick} />
         </ButtonMargin>
         <SearchResults>
-          <ViewData />
+          
         </SearchResults>
       </div>
     );

@@ -1,5 +1,6 @@
 import React from "react";
-import { connect } from "react-redux"
+import { connect } from "react-redux";
+import ServiceGroupType from './ServiceGroupType';
 import Checkbox from "./scheckbox";
 import InputBox from "./inputBox";
 import Button from "./button";
@@ -13,7 +14,7 @@ class SearchOptions extends React.Component {
     this.state = {
       radioValue: 'LevelId',
       radioLoadedChange: 'Loaded',
-      radioComparisonValue:'Across',
+      radioComparisonValue: 'Across',
       levelIdEanValue: '',
       cashcheckBoxValue: '',
       deletecheckBoxValue: '',
@@ -71,34 +72,39 @@ class SearchOptions extends React.Component {
   render() {
     return (
       <div>
+        <TitleHeader>Search Options </TitleHeader>
         <SearchContainer>
-          
-          <CardBox>
-            <CardBoxHeader> LevelID/EAN</CardBoxHeader>            
-                <Radio type="radio" name="selection" value="Level Id" defaultChecked="defaultChecked" onChange={this.radioChange} />
-                <InputBox type="text" onChange={this.levelIdChange} />
-                <Radio type="radio" name="selection" value="EAN" onChange={this.radioChange} />                          
-            </CardBox> 
-                   
-            
-              <CardBox>
-              <CardBoxHeader> Pricing Loaded Options</CardBoxHeader>
-                <Radio  name="loaded" value="Loaded only" defaultChecked="defaultChecked" onChange={this.radioLoadedChange} />      <Radio  name="loaded" value="Loaded with inheritance" onChange={this.radioLoadedChange} />              
-            </CardBox>
-            <CardBox>
-              <CardBoxHeader> Hierarchy Comparison Direction </CardBoxHeader>
-                <Radio  name="comparison" value="Across" defaultChecked="defaultChecked" onChange={this.radioComparisonChange} />
-				<Radio  name="comparison" value="Down with inheritance" onChange={this.radioComparisonChange} />              
-            </CardBox>
 
-            <CardBox>
-              <CardBoxHeader> Pricing Options</CardBoxHeader>
-                <div><Checkbox type="checkbox" value="Cash" className="margin" onChange={this.cashCheckBoxChange} /></div>
-            <div><Checkbox type="checkbox" value="Delete" className="margin" onChange={this.deleteCheckBoxChange} /></div>            
-            </CardBox>
-          
-          
+          <CardBox>
+            <CardBoxHeader> LevelID/EAN</CardBoxHeader>
+            <InputBox type="text" onChange={this.levelIdChange} />
+            <Radio type="radio" name="selection" value="Level Id" defaultChecked="defaultChecked" onChange={this.radioChange} />
+            <Radio type="radio" name="selection" value="EAN" onChange={this.radioChange} />
+          </CardBox>
+
+
+          <CardBox>
+            <CardBoxHeader> Pricing Loaded Options</CardBoxHeader>
+
+            <Radio name="loaded" value="Pricing Loaded only" defaultChecked="defaultChecked" onChange={this.radioLoadedChange} />      <Radio name="loaded" value="Pricing Loaded with inheritance" onChange={this.radioLoadedChange} />
+
+          </CardBox>
+          <CardBox>
+            <CardBoxHeader> Hierarchy Comparison Direction </CardBoxHeader>
+            <Radio name="comparison" value="Compare Across Hierarchy" defaultChecked="defaultChecked" onChange={this.radioComparisonChange} />
+            <Radio name="comparison" value="Compare Down Hierarchy" onChange={this.radioComparisonChange} />
+          </CardBox>
+
+          <CardBox>
+            <CardBoxHeader> Pricing Options</CardBoxHeader>
+            <Checkbox type="checkbox" value="Cash" className="margin" onChange={this.cashCheckBoxChange} />
+            <Checkbox type="checkbox" value="Delete" className="margin" onChange={this.deleteCheckBoxChange} />
+          </CardBox>
+
+
         </SearchContainer>
+        <SubHeader>Service Group Types </SubHeader>
+        <ServiceGroupType />
         <ButtonMargin>
           <Button type="submit" onClick={this.searchClick} />
         </ButtonMargin>
@@ -126,39 +132,6 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps, mapDispatchToProps)(SearchOptions);
 
 
-const CheckboxBorder = styled.div`
-  border: 1px solid;
-  margin: 0 auto;
-  width: 150px;
-   border-radius : 5px;
-   font-family: sans-serif;
-`;
-
-const Margin = styled.div`
-  margin: 10px;
-  display:inline
-`;
-
-const LevelIdEanBorder = styled.div`
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
-    background-color: #white;
-    margin: 0 auto;
-    display: flex;
-    border-radius: 5px;
-    font-family:  sans-serif;
-    font-size:small;
-
-`;
-const LoadedBorder = styled.div`
-  border: 1px solid;
-  margin: 0 auto;
-  display: flex;
-  font-family: sans-serif;
-  border-radius : 5px;
-
-`;
-
 const ButtonMargin = styled.div`
   width :10px;
   margin: 0 auto;
@@ -178,10 +151,9 @@ const CardBox = styled.div`
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: left;
     background-color: white;
-    margin: 5px;    
+    margin: 1em;   
     border-radius: 5px;
-   font-family: sans-serif;
-   font-size: smaller;
+   font-family: sans-serif;  
     height:100px;
     width: 300px;
    
@@ -201,3 +173,26 @@ margin-bottom: 0;
     font-size: medium;   
     border-radius: 3px;
 `;
+
+const TitleHeader = styled.div`
+ text-align: left;
+    background-color: lightgrey;
+    height: 30px;
+   padding: 10px;
+    color: black;
+    font-family: sans-serif;
+    font-size: 11pt;
+    font-weight: bold;
+    border-radius: 3px;
+`;
+
+const SubHeader = styled.div`
+ text-align: left;    
+   padding: 10px;
+    color: black;
+    font-family: sans-serif;
+    font-size: 11pt;
+    font-weight: bold;
+    border-radius: 3px;
+`;
+

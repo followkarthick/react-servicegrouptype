@@ -4,7 +4,8 @@ import ServiceGroupList from './ServiceGroupList';
 
 import './style.css';
 
-const API_URL = "https://cpmtest.app.wtcdev2.paas.fedex.com/cpm/R3/search-options-service/serviceGroup";
+const TEST_API_URL = "https://cpmtest.app.wtcdev2.paas.fedex.com/cpm/R3/search-options-service/serviceGroup";
+const API_URL = "https://www.mocky.io/v2/5d8603783200000b6207b32b";
 const ServiceGroupType = () => {
   const [details, setDetails] = useState([]);
   async function getDataFromAPI() {

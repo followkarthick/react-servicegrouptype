@@ -18,9 +18,7 @@ export default function CheckBoxList({ services, isCheckedAll, onCheck, opcoName
     <div className="column">
       <div className="card">
 
-        <header className="card-header"
-          style={{ color: opcoName === "FXE" ? "#ff6200" : "black" }
-          }>
+        <header className="card-header">
           <CheckBox name="select-all" value={opcoName} tick={isCheckedAll} onCheck={(e) => onCheck('all', e.target.checked)} />
         </header>
         {checkBoxOptions}

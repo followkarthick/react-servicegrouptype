@@ -23,7 +23,7 @@ class App extends Component {
        <h3 className="headerP"> Customer Pricing Map</h3>   
         <SearchOptions/>
 
-        <ServiceGroupType/>
+        
   
         
       </div>

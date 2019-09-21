@@ -77,11 +77,30 @@ h1, p {
 }
 
 .headerP{
-  background-color:mediumpurple;
-  height: 50px;
   text-align: center;
+    background-color: #4D148C;
+    height: 50px;
+        padding: 10px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 22pt;
+    border-radius: 3px;
 }
+.headerBox{
+  text-align: center;
+    background-color: #4D148C;
+    color: white;
+    font-family: sans-serif;
+    font-size: 22pt;
+    border-radius: 3px;
+}
+
 
 .margin{
   margin: 10px
+}
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 0.5px solid #000000;
 }

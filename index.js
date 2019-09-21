@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <div>
-       <h3 className="headerP">Welcome To Customer Pricing Map</h3>   
+       <h3 className="headerP"> Customer Pricing Map</h3>   
         <SearchOptions/>
 
         <ServiceGroupType/>
